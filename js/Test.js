@@ -3,18 +3,23 @@ login: 'Дэдпул',
 firstName: 'Уэйд',
 lastName: 'Уилсон',
 transport: {cars: {sport: ['BMW', 'Lada', 'VAZ' ]}},
-getfullname () {
-return `${this.firstName} ${this.lastName}`
-},
-say () {
-    console.log(`Меня зовут ${this.getfullname()}`);
-},
 }
 
-// hero.say();
+Object.defineProperty(hero, 'fullName', {
+get () {
+return `${this.firstName} ${this.lastName}`
 
-const heroStr = JSON.stringify(hero);
-console.log('heroStr: ', heroStr);
+},
+set(val) {
 
-const heroObj = JSON.parse(heroStr);
-console.log('heroObj: ', heroObj);
+    if (typeof val === 'string') {
+    this.comment = val;
+    }
+}
+})
+
+console.log(hero.fullName);
+hero.fullName = 'Огонь'
+
+hero.login  = 'Masha'
+console.log(hero);

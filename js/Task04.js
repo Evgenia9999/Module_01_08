@@ -10,19 +10,17 @@ if (n > m) {
 }
 
 const allYear = Array(max - min + 1).fill(1);
-console.log( allYear);
 
     for (i = 0; i < allYear.length; i++, min++) {
 
     const range = allYear[i] * min;
     const yearDeleted = allYear.splice(i, 1, range);
+    };
 
-    }
-    // console.log(allYear);
+const leapYear = allYear.filter(item => (!(item % 4) && (item % 100)) || !(item % 400));
 
-const leapYear = allYear.filter(item => (!(item % 4) && (item % 100)) || !(item % 400))
-console.log('leapYear: ', leapYear);
+return leapYear;
 
-}
+};
 
-foo(800, -100)
+console.log(foo(800, -100));
