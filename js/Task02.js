@@ -1,10 +1,17 @@
 const randomMas = (a, n, m) => {
 
+    if (n > m) {
 
+        max = n;
+        min = m;
+    } else {
+        max = m;
+        min = n;
+    }
 
     let newMas = Array(a).fill(1);
 
-    let random = newMas.map((item) => item * Math.floor(Math.random() * (m - n + 1) + n));
+    let random = newMas.map((item) => item * Math.floor(Math.random() * (max - min + 1) + min));
     
 
     return random;

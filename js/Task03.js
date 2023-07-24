@@ -1,24 +1,31 @@
 const randomMas = (a, n, m, s) => {
 
+    if (n > m) {
 
+        max = n;
+        min = m;
+    } else {
+        max = m;
+        min = n;
+    }
 
-    let newMas = Array(a).fill(1);
+    const newMas = Array(a).fill(1);
 
-    let random = newMas.map((item) => item * Math.floor(Math.random() * (m - n + 1) + n));
+    const random = newMas.map((item) => item * Math.floor(Math.random() * (max - min + 1) + min));
 
-    if (s === 'even') {
-        result = random.filter((item) => item % 2 );
-
-    } else if (s === 'odd') {
-        result = random.filter((item) => !(item % 2));
-
+    if (s === 'odd') {
+        const result = random.filter((item) => item % 2 );
+        return result;
+    } else if (s === 'even') {
+        const result = random.filter((item) => !(item % 2));
+        return result;
     } else if (s === undefined) {
-        result = random;
+        const result = random;
+        return result;
     };
 
-    return result;
 };
-console.log(randomMas(7, -5, 50, ));
+console.log(randomMas(7, 5, -50, ));
 
 
 
